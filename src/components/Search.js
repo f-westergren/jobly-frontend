@@ -4,7 +4,6 @@ import {
   Input,
   Button
 } from 'reactstrap';
-import '../Search.css';
 
 function Search({ search }) {
   const [query, setQuery] = useState('')
@@ -31,7 +30,7 @@ function Search({ search }) {
         onChange={handleChange}
         value={query}
       />
-      <Button className="btn btn-lg rounded-0" color="primary">Submit</Button>
+      <Button className="btn btn-lg rounded" color="primary">Submit</Button>
       </Form>
     </div>
   )

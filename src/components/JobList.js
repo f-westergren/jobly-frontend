@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import JoblyApi from '../JoblyApi';
 import Search from './Search';
 import Job from './Job';
+import { Spinner } from 'reactstrap';
 import { useAuth } from "./context/auth";
 import { getUserFromToken } from '../utils'; 
 
@@ -39,7 +40,12 @@ const JobList = () => {
   }, [username])
 
   if (isLoading || !fetched) {
-    return <p>I am loading!</p>
+    return (
+      <div className="text-center">
+        <Spinner animation="border" role="status" />
+        <span className="sr-only">Loading...</span>
+      </div>
+    )
   }
 
   const search = async (query) => {

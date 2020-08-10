@@ -14,11 +14,11 @@ function Job({ job, applied }) {
   const apply = async e => {
     e.preventDefault()
     try {
-    await JoblyApi.apply(e.target.id)
-    setBtnText('Applied')
-    setIsDisabled(true)
+      await JoblyApi.apply(e.target.id)
+      setBtnText('Applied')
+      setIsDisabled(true)
     } catch (err) {
-     setError(true)
+      setError(true)
     }
   }
 

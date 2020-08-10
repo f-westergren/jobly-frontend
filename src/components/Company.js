@@ -1,5 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
+import { Spinner } from 'reactstrap';
 import Job from './Job';
 import JoblyApi from '../JoblyApi';
 import { useAuth } from "./context/auth";
@@ -36,7 +37,12 @@ function Company() {
   }, [username])
 
   if (isLoading || !fetched) {
-    return <p>I am loading!</p>
+    return (
+      <div className="text-center">
+        <Spinner animation="border" role="status" />
+        <span className="sr-only">Loading...</span>
+      </div>
+    )
   }
 
   if (!company) return <Redirect to='/companies' />

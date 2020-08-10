@@ -6,7 +6,8 @@ import {
   Form,
   FormGroup,
   Label,
-  Input
+  Input,
+  Spinner
    } from 'reactstrap';
 import JoblyApi from '../JoblyApi';
 import { useAuth } from "./context/auth";
@@ -36,7 +37,12 @@ const Profile = () => {
   }, [username])
 
   if (isLoading) {
-    return <p>I am loading!</p>
+    return (
+      <div className="text-center">
+        <Spinner animation="border" role="status" />
+        <span className="sr-only">Loading...</span>
+      </div>
+    )
   }
 
   const handleChange = e => {

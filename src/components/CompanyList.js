@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import JoblyApi from '../JoblyApi';
+import { Spinner } from 'reactstrap';
 import CompanyCard from './CompanyCard';
 import Search from './Search';
 
@@ -23,7 +24,12 @@ const CompanyList = () => {
   }, []);
 
   if (isLoading) {
-    return <p>I am loading!</p>
+    return (
+      <div className="text-center">
+        <Spinner animation="border" role="status" />
+        <span className="sr-only">Loading...</span>
+      </div>
+    )
   }
 
   const search = async (query) => {
